@@ -1,0 +1,132 @@
+/* Navbar */
+.navbar {
+  background-image: linear-gradient(to right, #0e4c92, #97a7d9);
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  color: rgb(113, 227, 227);
+  font-size: 24px;
+  transition: 0.3s color;
+  padding: 0.5rem;
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  position: relative; /* Tambahkan properti ini */
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+@media (min-width: 991px) {
+  .nav-link::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: darkslategrey;
+      visibility: hidden;
+      transition: width 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before,
+  .nav-link.active::before {
+      width: 100%;
+      visibility: visible;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding: 100px 0; /* Tambahkan padding untuk memisahkan dari navbar */
+  background-image: linear-gradient(to left, #b8c7df, #dfdfe1); /* Warna latar belakang */
+}
+
+/* CSS untuk kartu (card) dalam hero section */
+.card {
+  border: 1px solid #dee2e6; /* Garis tepi */
+  border-radius: 10px; /* Sudut bulat */
+  background-color: white; /* Warna latar belakang kartu */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan */
+  height: 300px; /* Tinggi kartu */
+}
+
+/* CSS untuk judul kartu */
+.card-title {
+  color: #343a40; /* Warna teks judul */
+  font-size: 1rem; /* Ukuran font judul */
+  font-weight: bold; /* Ketebalan font judul */
+}
+
+/* CSS untuk teks dalam kartu */
+.card-text {
+  color: #6c757d; /* Warna teks konten */
+  font-size: 0.875rem; /* Ukuran font teks */
+}
+
+/* Contact Form */
+.contact-section {
+  padding: 20px 0; /* Reduced padding top and bottom */
+  background-image: linear-gradient(to left, #b8c7df, #dfdfe1);
+}
+
+.contact-section h2 {
+  color: #343a40; /* Heading color */
+}
+
+.contact-section form {
+  background-color: #fff; /* Form background color */
+  padding: 20px; /* Reduced padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: -20px; /* Negative margin to move the form up */
+}
+
+.contact-section .form-label {
+  color: #343a40; /* Label color */
+}
+
+.contact-section .form-control {
+  border-color: #ced4da; /* Form control border color */
+}
+
+.contact-section .btn-primary {
+  background-color: #0e4c92; /* Button background color */
+  border-color: #0e4c92; /* Button border color */
+}
+
+.contact-section .btn-primary:hover {
+  background-color: #0c4287; /* Button hover background color */
+  border-color: #0c4287; /* Button hover border color */
+}
+
+.contact-section .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(14, 76, 146, 0.5); /* Button focus shadow color */
+}

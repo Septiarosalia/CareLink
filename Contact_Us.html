@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="style-contact-us.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    .contact-section {
+      padding-top: 120px; /* Adjust this value based on the height of your navbar */
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body d-flex justify-content-between align-items-center">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="Target.html">Target</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="Donate.html">Donate</a>
+          </li>
+        </ul>
+
+        <!-- Profile Icon -->
+        <a class="nav-link mx-lg-2" href="#" id="profileIcon">
+          <i class="fas fa-user"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END Navbar -->
+
+  <!-- Contact Form -->
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Contact Us</h2> <!-- Heading di tengah -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <form id="contact-form" action="submit_form.php" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="mb-3">
+              <label for="notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="notes" name="notes" rows="4" required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END Contact Form -->
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <!-- Add Our Contact Heading -->
+      <h3 class="text-start mt-5 mb-4 text-white">Our Contact</h3>
+      <!-- Third Card -->
+      <div class="row">
+        <!-- Third Card -->
+        <div class="col-md-6 mt-md-3">
+          <div class="card h-100 custom-card"> <!-- Menambahkan class h-100 agar kartu memiliki tinggi yang sama -->
+            <div class="card-body">
+              <h5 class="card-title">Email</h5>
+              <p class="card-text">carelink@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <!-- Fourth Card -->
+        <div class="col-md-6 mt-md-3">
+          <div class="card h-100 custom-card"> <!-- Menambahkan class h-100 agar kartu memiliki tinggi yang sama -->
+            <div class="card-body">
+              <h5 class="card-title">Telephone Number</h5>
+              <p class="card-text">08123456789</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END Hero Section -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
