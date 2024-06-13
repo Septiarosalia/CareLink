@@ -146,7 +146,7 @@
     <section class="submit-section">
         <div class="container">
             <div class="form-container">
-                <h2 class="text-center mb-4">Submit Your Image</h2>
+                <h2 class="text-center mb-4">Bukti Pembayaran</h2>
                 <form action="Home.html" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Image</label>
