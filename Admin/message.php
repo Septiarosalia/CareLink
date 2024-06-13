@@ -91,38 +91,31 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" href="#">CareLink</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">CareLink</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
       <div class="offcanvas-body d-flex justify-content-between align-items-center">
-        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="Target.html">Target</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="Donate.html">Donate</a>
-          </li>
-        </ul>
+      <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="About Us.html">Donatur</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="message.php">Message</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="dataAdmin.php">Donasi</a>
+                        </li>
+                    </ul>
 
         <!-- Profile Icon -->
         <a class="nav-link mx-lg-2" href="#" id="profileIcon">

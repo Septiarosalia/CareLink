@@ -113,25 +113,18 @@
                 </div>
 
                 <div class="offcanvas-body d-flex justify-content-between align-items-center">
-                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
+                            <a class="nav-link mx-lg-2" href="About Us.html">Donatur</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
+                            <a class="nav-link mx-lg-2" href="message.php">Message</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="Target.html">Target</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="form_donate.php">Donate</a>
+                            <a class="nav-link mx-lg-2" href="dataAdmin.php">Donasi</a>
                         </li>
                     </ul>
 
