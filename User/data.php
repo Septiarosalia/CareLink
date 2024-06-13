@@ -151,6 +151,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.6/dist/bootstrap-table.min.js"></script>
 </body>
+
+  <div class="text-center mt-4">
+    <a href="form-donate.php" class="btn btn-primary">Next</a>
+  </div>
+
+  <br><br><br>
 <footer class="footer">
       <div class="social">
           <a href="https://www.instagram.com/septia_rosalia39?igsh=MXM0cjIwbHlla3pkdA%3D%3D&utm_source=qr"><i
