@@ -229,3 +229,9 @@
   font-size: 1.5rem;
   color: #ffffff;
 }
+
+.hero-section {
+  padding-top: 240px; /* Adjust this value as needed */
+  padding-bottom: 100px; /* Adjust this value as needed */
+  text-align: center; /* Optional: to center align the text */
+}

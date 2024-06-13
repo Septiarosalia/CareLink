@@ -102,3 +102,11 @@ i.fas.fa-user {
 .donate-section .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(14, 76, 146, 0.5); /* Button focus shadow color */
 }
+
+
+        /* Donasi Sekarang Section */
+        .donasi-sekarang {
+          text-align: center;
+          padding: 20px 0; /* Reduced padding */
+          margin-top: 80px; /* Reduced margin-top to make it closer to the navbar */
+      }
