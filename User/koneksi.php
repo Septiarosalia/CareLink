@@ -1,12 +1,14 @@
 <?php
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "carelink";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carelink";
 
-    $connect = mysqli_connect($host, $username, $password, $db);
+// Membuat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-	if (mysqli_connect_errno()){
-		echo "Error Connection!" . mysqli_connect_error();
-	}
+// Memeriksa koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 08:24 PM
+-- Generation Time: Jun 13, 2024 at 10:24 PM
 -- Server version: 10.4.28-MariaDB-log
 -- PHP Version: 8.0.28
 
@@ -86,6 +86,22 @@ INSERT INTO `donasi` (`id`, `name`, `status`, `date_time`, `jumlah_donasi`, `tar
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payment_proof`
+--
+
+CREATE TABLE `payment_proof` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `target` varchar(100) NOT NULL,
+  `notes` text DEFAULT NULL,
+  `file_path` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -119,6 +135,12 @@ ALTER TABLE `donasi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment_proof`
+--
+ALTER TABLE `payment_proof`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -139,6 +161,12 @@ ALTER TABLE `contacts`
 --
 ALTER TABLE `donasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `payment_proof`
+--
+ALTER TABLE `payment_proof`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
