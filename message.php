@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="style-contact-us.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,6 +54,54 @@
             color: #4662E8; /* Color for read status */
             font-weight: bold;
         }
+        
+    .footer {
+        background-image: url('background.jpg');
+        opacity: 80%;
+        background-color: black;
+        color: white; 
+        text-align: center; 
+        padding: 20px; 
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .footer .social a {
+        color: white; 
+        margin: 0 15px; 
+        font-size: 24px; 
+        display: inline-block; 
+        margin-bottom: 15px;
+    }
+
+    .footer ul {
+        list-style: none; 
+        padding: 0; 
+        display: flex;
+        justify-content: center; 
+        gap: 5px; 
+    }
+
+    .footer ul li {
+        display: inline; 
+    }
+
+    .footer ul li a {
+        color: white; 
+        text-decoration: none;
+        padding: 5px 10px;
+        margin-top: 20px;
+    }
+
+    .footer ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .footer p {
+        margin-top: 5px;
+        font-size: 12px;
+    }
     </style>
 </head>
 <body>
@@ -184,6 +233,32 @@
         </table>
     </div>
 </div>
+<footer class="footer">
+  <div class="social">
+      <a href="https://www.instagram.com/septia_rosalia39?igsh=MXM0cjIwbHlla3pkdA%3D%3D&utm_source=qr"><i
+              class='bx bxl-instagram'></i></a>
+      <a href="http://wa.me/82282126810"><i class='bx bxl-whatsapp'></i></a>
+      <a href="mailto:septiarosalia493@gmail.com"><i class='bx bxs-envelope'></i></a>
+  </div>
 
+  <ul class="list">
+      <li>
+          <a href="about.html">About Us</a>
+      </li>
+      <li>
+          <a href="Contact_Us.html">Contact Us</a>
+      </li>
+      <li>
+          <a href="">Target</a>
+      </li>
+      <li>
+        <a href="">Donate</a>
+    </li>
+  </ul>
+
+  <p class="copyright">@ 2024 CareLink | All Rights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        $success_message = "for contacting us! We'll get back to you soon.";
+        $success_message = "Thank you for contacting us! We'll get back to you soon.";
     } else {
         $error_message = "Error: " . $stmt->error;
     }
@@ -49,18 +49,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="style-contact-us.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-         body {
-            font-family: poppins, sans-serif;
-            background-image: url('background.jpg'); /* Ganti 'background.jpg' dengan nama file gambar Anda */
-            opacity: 0,2;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('background.jpg');
             background-size: cover;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 20px;
         }
         .container {
             max-width: 500px;
@@ -106,13 +112,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .success-message {
             text-align: center;
-            color: ;
+            color: black;
             margin-top: 20px;
         }
         .error-message {
             text-align: center;
             color: #ff0000;
             margin-top: 20px;
+        }
+        .footer {
+            background-image: linear-gradient(to right, #0e4c92, #97a7d9);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: auto;
+        }
+        .footer .social a {
+            color: white;
+            margin: 0 15px;
+            font-size: 24px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        .footer ul li {
+            display: inline;
+        }
+        .footer ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-top: 20px;
+        }
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer p {
+            margin-top: 5px;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -162,38 +208,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </nav>
 <!-- END Navbar -->
-<div class="container">
-    <h2>Thank You</h2>
-    <?php if(!empty($success_message)): ?>
-        <div class="success-message"><?php echo $success_message; ?></div>
-    <?php endif; ?>
-    <?php if(!empty($error_message)): ?>
-        <div class="error-message"><?php echo $error_message; ?></div>
-    <?php endif; ?>
-    <?php if(empty($success_message)): ?>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="notes" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-    <?php endif; ?>
+
+<div class="content">
+    <div class="container">
+        <h2>Thank You</h2>
+        <?php if(!empty($success_message)): ?>
+            <div class="success-message"><?php echo $success_message; ?></div>
+        <?php endif; ?>
+        <?php if(!empty($error_message)): ?>
+            <div class="error-message"><?php echo $error_message; ?></div>
+        <?php endif; ?>
+        <?php if(empty($success_message)): ?>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        <?php endif; ?>
+    </div>
 </div>
 
+<footer class="footer">
+  <div class="social">
+      <a href="https://www.instagram.com/septia_rosalia39?igsh=MXM0cjIwbHlla3pkdA%3D%3D&utm_source=qr"><i class='bx bxl-instagram'></i></a>
+      <a href="http://wa.me/82282126810"><i class='bx bxl-whatsapp'></i></a>
+      <a href="mailto:septiarosalia493@gmail.com"><i class='bx bxs-envelope'></i></a>
+  </div>
+
+  <ul class="list">
+      <li>
+          <a href="about.html">About Us</a>
+      </li>
+      <li>
+          <a href="Contact_Us.html">Contact Us</a>
+      </li>
+      <li>
+          <a href="Target.html">Target</a>
+      </li>
+      <li>
+          <a href="Donate.html">Donate</a>
+      </li>
+  </ul>
+
+  <p class="copyright">@ 2024 CareLink | All Rights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
