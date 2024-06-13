@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        $success_message = "Thank you for contacting us! We'll get back to you soon.";
+        $success_message = "For contacting us! We'll get back to you soon.";
     } else {
         $error_message = "Error: " . $stmt->error;
     }
@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,9 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
-            font-family: poppins, sans-serif;
+            font-family: Poppins, sans-serif;
             background-image: url('background.jpg');
-            opacity: 0.2;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -107,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .success-message {
             text-align: center;
-            color: #28a745;
+            color: black;
             margin-top: 20px;
         }
         .error-message {
@@ -117,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .footer {
             background-image: url('background.jpg');
-            opacity: 80%;
+            opacity: 0.8;
             background-color: black;
             color: white;
             text-align: center;
@@ -159,46 +157,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 </head>
-<body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<body>    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CareLink</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">CareLink</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body d-flex justify-content-between align-items-center">
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="Target.html">Target</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="form_donate.php">Donate</a>
+              </li>
+            </ul>
+
+            <!-- Profile Icon -->
+            <a class="nav-link mx-lg-2" href="#" id="profileIcon">
+              <i class="fas fa-user"></i>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="offcanvas-body d-flex justify-content-between align-items-center">
-        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="Target.html">Target</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="Donate.html">Donate</a>
-          </li>
-        </ul>
-        <!-- Profile Icon -->
-        <a class="nav-link mx-lg-2" href="#" id="profileIcon">
-          <i class="fas fa-user"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
-<!-- END Navbar -->
+    </nav>
+    <!-- END Navbar -->
 
 <div class="container">
     <h2>Thank You</h2>
