@@ -1,0 +1,87 @@
+/* Navbar */
+.navbar {
+  background-image: linear-gradient(to right, #0e4c92, #97a7d9);
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  color: rgb(113, 227, 227);
+  font-size: 24px;
+  transition: 0.3s color;
+  padding: 0.5rem;
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  position: relative; /* Tambahkan properti ini */
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+@media (min-width: 991px) {
+  .nav-link::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: darkslategrey;
+      visibility: hidden;
+      transition: width 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before,
+  .nav-link.active::before {
+      width: 100%;
+      visibility: visible;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #1f3146; /* Warna solid untuk background */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding: 100px 0; /* Tambahkan padding untuk memisahkan dari navbar */
+}
+
+.about-img img {
+  max-width: 100%; /* Tambahkan properti ini agar gambar tidak melebihi lebar kontainer */
+}
+
+.about-text h1 {
+  font-size: 2.5rem; /* Sesuaikan ukuran teks */
+  font-weight: bold;
+  color: #ffffff; /* Warna teks */
+  margin-bottom: 20px; /* Tambahkan jarak bawah */
+}
+
+.about-text p {
+  color: #ffffff; /* Warna teks */
+  font-size: 1.1rem; /* Sesuaikan ukuran teks */
+  line-height: 1.6; /* Sesuaikan spasi baris */
+}

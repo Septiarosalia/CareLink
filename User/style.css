@@ -65,7 +65,7 @@
   background: url(background.jpg) no-repeat center;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 10vh;
   padding: 100px 0; /* Tambahkan padding untuk memisahkan dari navbar */
 }
 
@@ -228,80 +228,4 @@
 .navbar .nav-link i.fas.fa-user {
   font-size: 1.5rem;
   color: #ffffff;
-}
-
-body {
-  background-color: rgb(237, 237, 248);
-
-}
-/*
-
-CSS for the Target Section */
-.target-section { /* Background color */
-  padding: 100px 0;
-}
-
-.target-item {
-  background-color: rgb(45, 52, 140); /* Background color */
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  height: 200px; /* Set a fixed height for better alignment */
-}
-
-.target-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 100%;
-}
-
-.target-text {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.view-button {
-  background-color: #fff;
-  color: #f36f21;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.view-button:hover {
-  background-color: #f36f21;
-  color: #fff;
-}
-
-.view-button .arrow {
-  margin-left: 10px;
-}
-
-.target-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('product2.jpg') no-repeat center center;
-  background-size: cover;
-  z-index: 0;
-  opacity: 0.5; /* Adjust opacity for better text visibility */
-  filter: blur(5px); /* Optional: add blur effect */
-}
-
-.target-section h2.text-center {
-    margin-top: 2rem; /* Adjust the value as needed */
 }
