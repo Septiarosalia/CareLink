@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// 7	notes
     // Execute the statement
     if ($stmt->execute()) {
-        $success_message = "Donasi diterima, ditunggu konfirmasinya";
+        $success_message = "Donations accepted, waiting for confirmation";
     } else {
         $error_message = "Error: " . $stmt->error;
     }
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .success-message {
             text-align: center;
-            color: #28a745;
+            color: black;
             margin-top: 20px;
         }
         .error-message {
