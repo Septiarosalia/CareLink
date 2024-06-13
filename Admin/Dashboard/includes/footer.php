@@ -1,5 +1,5 @@
 <footer>
-        <p>&copy; 2024 My Dashboard. All Rights Reserved.</p>
+        <p>&copy; Carelink's Dashboard</p>
     </footer>
 </body>
 </html>
