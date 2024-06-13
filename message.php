@@ -10,24 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            overflow: auto;
-        }
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3; /* Adjust the opacity to make the background image semi-transparent */
-            z-index: -1;
+            background-color:#7794BB;
         }
         .container {
             padding: 20px;
