@@ -80,6 +80,38 @@
   .view-button:hover {
     background-color: #0056b3;
   }
+
+  .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure the card takes full height of its container */
+  }
+
+  .card-body {
+   flex: 1; /* This allows the body of the card to expand and take up remaining space */
+   }
+
+   .card {
+    height: 100%; /* Ensure all cards have the same height for uniformity */
+    display: flex;
+    flex-direction: column;/* Ensure the card takes full height of its container */
+}
+
+.card-img-top {
+  width: 100%; /* Ensure image takes full width of its container */
+  height: 200px; /* Set a fixed height for the image */
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+}
+
+.btn-primary {
+  width: 70%; /* Full width button */
+  text-align: center; /* Center align text */
+  margin-top: auto;
+  position: absolute; /* Position the button absolutely */
+  bottom: 10px; /* Push button to bottom */
+}
+
+
     </style>
   </head>
   <body>
@@ -95,8 +127,7 @@
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">CareLink</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-
-          <div class="offcanvas-body d-flex justify-content-between align-items-center">
+          <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
               <li class="nav-item">
                 <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
@@ -118,72 +149,73 @@
                 <a class="nav-link mx-lg-2" href="form_donate.php">Donate</a>
               </li>
             </ul>
-
-            <!-- Profile Icon -->
-            <div class="dropdown">
-              <a class="nav-link mx-lg-2 dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-user"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                <li><a class="dropdown-item" href="login.php">Sign Out</a></li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
     </nav>
-    <!-- END Navbar -->
 
-    <!-- Target Section -->
-    <section class="target-section mt-5 pt-5">
+
+    <section class="donate-section">
       <div class="container">
-        <h2 class="text-center mb-5" id="product">Target Donasi</h2>
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="target-item position-relative" style="background-image: url('path/to/image1.jpg');">
-              <div class="target-overlay text-center">
-                <div class="target-text">Desa Berdaya</div>
-                <a href="form_donate.php" class="btn view-button small-button">Donasi Sekarang<span class="arrow">&#8594;</span></a>
+        <h2 class="text-center mb-5">Donate</h2> <!-- Heading di tengah -->
+        <div class="row row-cols-lg-4 g-lg-2">
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="desaberdaya.jpg" class="card-img-top" alt="Rendering masjid">
+              <div class="card-body">
+                <h5 class="card-title">Desa Berdaya</h5>
+                <p class="card-text">Memajukan kemandirian desa dengan pengembangan infrastruktur dasar, pelatihan pertanian berkelanjutan, dan pemberdayaan perempuan untuk meningkatkan kualitas hidup dan stabilitas ekonomi masyarakat desa.</p>
+                <a href="form_donate.php" class="btn btn-primary">Donasi Sekarang</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="target-item position-relative" style="background-image: url('path/to/image2.jpg');">
-              <div class="target-overlay text-center">
-                <div class="target-text">Pendidikan</div>
-                <a href="form_donate.php" class="btn view-button">Donasi Sekarang<span class="arrow">&#8594;</span></a>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="Ekonomii.jpeg" class="card-img-top" alt="nyamuk">
+              <div class="card-body">
+                <h5 class="card-title">Ekonomi</h5>
+                <p class="card-text">Mendorong pertumbuhan ekonomi dengan memberikan dukungan kepada usaha kecil dan menengah (UKM) dan penyediaan akses ke modal serta pasar, untuk menciptakan lapangan kerja.</p>
+                <a href="form_donate.php" class="btn btn-primary">Donasi Sekarang</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="target-item position-relative" style="background-image: url('path/to/image3.jpg');">
-              <div class="target-overlay text-center">
-                <div class="target-text">Ekonomi</div>
-                <a href="form_donate.php" class="btn view-button">Donasi Sekarang<span class="arrow">&#8594;</span></a>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="Pendidikan.jpeg" class="card-img-top" alt="bangun asa 45, sebuah rumah di desa">
+              <div class="card-body">
+                <h5 class="card-title">Pendidikan</h5>
+                <p class="card-text">Meningkatkan akses dan kualitas pendidikan bagi anak-anak dari keluarga kurang mampu atau daerah terpencil melalui program beasiswa, peningkatan infrastruktur sekolah.</p>
+                <a href="form_donate.php" class="btn btn-primary">Donasi Sekarang</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="target-item position-relative" style="background-image: url('path/to/image4.jpg');">
-              <div class="target-overlay text-center">
-                <div class="target-text">Panti Asuhan</div>
-                <a href="form_donate.php" class="btn view-button">Donasi Sekarang<span class="arrow">&#8594;</span></a>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="PantiAsuhan.jpg" class="card-img-top" alt="anak-anak perlu bantuan">
+              <div class="card-body">
+                <h5 class="card-title">Panti Asuhan</h5>
+                <p class="card-text">Memberikan perlindungan, pendidikan, dan perawatan bagi anak-anak yatim piatu atau yang tidak memiliki orang tua untuk mendukung perkembangan mereka secara fisik, emosional, dan sosial.</p>
+                <a href="form_donate.php" class="btn btn-primary">Donasi Sekarang</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="target-item position-relative" style="background-image: url('path/to/image5.jpg');">
-              <div class="target-overlay text-center">
-                <div class="target-text">Rumah Ibadah</div>
-                <a href="form_donate.php" class="btn view-button">Donasi Sekarang<span class="arrow">&#8594;</span></a>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="RumahIbadah.jpeg" class="card-img-top" alt="anak-anak perlu bantuan">
+              <div class="card-body">
+                <h5 class="card-title">Rumah Ibadah</h5>
+                <p class="card-text">Membangun, merenovasi, atau memelihara tempat ibadah seperti masjid, gereja, atau pura untuk memastikan keberlangsungan ibadah dan memenuhi kebutuhan spiritual komunitas setempat.</p>
+                <a href="form_donate.php" class="btn btn-primary">Donasi Sekarang</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="target-item position-relative" style="background-image: url('path/to/image6.jpg');">
-              <div class="target-overlay text-center">
-                <div class="target-text">Lingkungan & Kebencanaan</div>
-                <a href="form_donate.php" class="btn view-button">Donasi Sekarang<span class="arrow">&#8594;</span></a>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="Lingkungan.jpeg" class="card-img-top" alt="anak-anak perlu bantuan">
+              <div class="card-body">
+                <h5 class="card-title">Lingkungan dan Kebencanaan</h5>
+                <p class="card-text">Melindungi dan merawat lingkungan alam, serta memberikan bantuan dalam menghadapi bencana alam atau kejadian darurat untuk mendukung pemulihan.</p>
+                <a href="form_donate.php" class="btn btn-primary">Donasi Sekarang</a>
               </div>
             </div>
           </div>
@@ -207,10 +239,10 @@
               <a href="Contact_Us.html">Contact Us</a>
           </li>
           <li>
-              <a href="">Target</a>
+              <a href="Target.html">Target</a>
           </li>
           <li>
-            <a href="">Donate</a>
+            <a href="form_donate.php">Donate</a>
         </li>
       </ul>
     
