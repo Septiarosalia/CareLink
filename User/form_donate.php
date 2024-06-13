@@ -124,54 +124,54 @@
         .card {
             margin-top: -130px; /* Adjusted margin-top */
         }
-        
-    .footer {
-        background-image: url('background.jpg');
-        opacity: 80%;
-        background-color: black;
-        color: white; 
-        text-align: center; 
-        padding: 20px; 
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-    }
+            
+        .footer {
+            background-image: url('background.jpg');
+            opacity: 80%;
+            background-color: black;
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
 
-    .footer .social a {
-        color: white; 
-        margin: 0 15px; 
-        font-size: 24px; 
-        display: inline-block; 
-        margin-bottom: 15px;
-    }
+        .footer .social a {
+            color: white; 
+            margin: 0 15px; 
+            font-size: 24px; 
+            display: inline-block; 
+            margin-bottom: 15px;
+        }
 
-    .footer ul {
-        list-style: none; 
-        padding: 0; 
-        display: flex;
-        justify-content: center; 
-        gap: 5px; 
-    }
+        .footer ul {
+            list-style: none; 
+            padding: 0; 
+            display: flex;
+            justify-content: center; 
+            gap: 5px; 
+        }
 
-    .footer ul li {
-        display: inline; 
-    }
+        .footer ul li {
+            display: inline; 
+        }
 
-    .footer ul li a {
-        color: white; 
-        text-decoration: none;
-        padding: 5px 10px;
-        margin-top: 20px;
-    }
+        .footer ul li a {
+            color: white; 
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-top: 20px;
+        }
 
-    .footer ul li a:hover {
-        text-decoration: underline;
-    }
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
 
-    .footer p {
-        margin-top: 5px;
-        font-size: 12px;
-    }
+        .footer p {
+            margin-top: 5px;
+            font-size: 12px;
+        }
     </style>
 </head>
 
