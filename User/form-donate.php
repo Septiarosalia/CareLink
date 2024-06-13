@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Image Submission - CareLink</title>
+    <title>Payment Proof Submission - CareLink</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="style-donate.css" rel="stylesheet">
@@ -142,17 +142,24 @@
     <!-- END Navbar -->
 
     <br><br><br>
-    <!-- Image Submission Section -->
+    <!-- Payment Proof Submission Section -->
     <section class="submit-section">
         <div class="container">
             <div class="form-container">
                 <h2 class="text-center mb-4">Bukti Pembayaran</h2>
                 <form action="Home.html" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="image" class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                        <label for="proof" class="form-label">Upload Payment Proof</label>
+                        <input type="file" class="form-control" id="proof" name="proof" accept="image/*,application/pdf" required>
                     </div>
-                    
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input type="number" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transaction_id" class="form-label">Transaction ID</label>
+                        <input type="text" class="form-control" id="transaction_id" name="transaction_id" required>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 <?php if (isset($_GET['success']) && $_GET['success'] == 'true'): ?>
