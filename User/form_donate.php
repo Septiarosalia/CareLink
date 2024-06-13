@@ -140,23 +140,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body d-flex justify-content-between align-items-center">
-                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="Contact Us.html">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="Target.html">Target</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="Donate.html">Donate</a>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="Target.html">Target</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="form_donate.php">Donate</a>
+                    </li>
+                </ul>
                     <!-- Profile Icon -->
                     <a class="nav-link mx-lg-2" href="#" id="profileIcon">
                         <i class="fas fa-user"></i>

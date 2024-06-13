@@ -238,7 +238,7 @@ body {
 
 CSS for the Target Section */
 .target-section { /* Background color */
-  padding: 100px 0;
+  padding: 0 10px;
 }
 
 .target-item {
