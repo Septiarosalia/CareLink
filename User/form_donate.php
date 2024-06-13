@@ -226,6 +226,19 @@
                                     <input type="number" class="form-control" id="jumlah_donasi" name="jumlah_donasi" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="target_donasi" class="form-label">Target Donasi</label>
+                                    <select class="form-select" id="target_donasi" name="target_donasi" required>
+                                        <option value="" disabled selected>Pilih target donasi</option>
+                                        <option value="DESA BERDAYA">DESA BERDAYA</option>
+                                        <option value="Pendidikan">Pendidikan</option>
+                                        <option value="Ekonomi">Ekonomi</option>
+                                        <option value="Panti Asuhan">Panti Asuhan</option>
+                                        <option value="Rumah Ibadah">Rumah Ibadah</option>
+                                        <option value="Lingkungan">Lingkungan</option>
+                                        <option value="Kebencanaan">Kebencanaan</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
                                     <label for="catatan" class="form-label">Catatan untuk Donasi</label>
                                     <div class="form-floating">
                                         <textarea class="form-control" id="catatan" name="catatan"></textarea>
