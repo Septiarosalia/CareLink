@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="style-contact-us.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
+  <link href="style(1).css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -114,7 +115,7 @@
                 <div class="offcanvas-body d-flex justify-content-between align-items-center">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+                            <a class="nav-link mx-lg-2" aria-current="page" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="About Us.html">Donatur</a>
@@ -132,7 +133,7 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="login.php">Sign Out</a></li>
+                            <li><a class="dropdown-item" href="../login.php">Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -141,87 +142,98 @@
     </nav>
     <!-- END Navbar -->
 
-    <div class="d-flex">
-        <div class="main-content col-md-10">
-            <div class="container mt-5">
-                <h2>Dashboard</h2>
-                <div class="row">
-                    <?php
-                    $koneksi = mysqli_connect("localhost", "root", "", "carelink");
+    <div class="main-content">
+        <div class="container-fluid" style="margin-top: 120px;">
+            <div class="table-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th colspan="8" class="text-center text-black table-heading">Donation</th>
+                        </tr>
+                        <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Tanggal, Waktu Donasi</th>
+                        <th>Jumlah Donasi</th>
+                        <th>Catatan</th>
+                        <th>Validasi Pembayaran</th>
+                        <th>Status Validasi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="donationTableBody">
+                        <?php
+                        // Fetch messages from database and display
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "carelink";
 
-                    if (!$koneksi) {
-                        die("Koneksi ke database gagal: " . mysqli_connect_error());
-                    }
+                        $conn = new mysqli($servername, $username, $password, $dbname);
 
-                    // Query untuk mengambil jumlah donasi
-                    $query_donasi = mysqli_query($koneksi, "SELECT SUM(jumlah_donasi) AS total_donasi FROM donasi");
-                    if ($query_donasi) {
-                        $data_donasi = mysqli_fetch_assoc($query_donasi);
-                        $jumlah_donasi = $data_donasi['total_donasi'];
-                    } else {
-                        $jumlah_donasi = "Error: " . mysqli_error($koneksi);
-                    }
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        
+                        $sql = "SELECT * FROM donasi;";
+                        $result = $conn->query($sql);
 
-                    // Query untuk mengambil jumlah pesan
-                    $query_pesan = mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_pesan FROM contacts");
-                    if ($query_pesan) {
-                        $data_pesan = mysqli_fetch_assoc($query_pesan);
-                        $jumlah_pesan = $data_pesan['jumlah_pesan'];
-                    } else {
-                        $jumlah_pesan = "Error: " . mysqli_error($koneksi);
-                    }
+                        if (!$result) {
+                            die("Query failed: " . $conn->error);
+                        }
 
-                    // Query untuk mengambil jumlah donatur
-                    $query_donatur = mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah_donatur FROM donasi");
-                    if ($query_donatur) {
-                        $data_donatur = mysqli_fetch_assoc($query_donatur);
-                        $jumlah_donatur = $data_donatur['jumlah_donatur'];
-                    } else {
-                        $jumlah_donatur = "Error: " . mysqli_error($koneksi);
-                    }
-                    ?>
-                    <div class="col-md-4">
-                        <div class="card-custom">
-                            <div>Jumlah Donasi</div>
-                            <h3><?php echo $jumlah_donasi; ?></h3>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-custom">
-                            <div>Message</div>
-                            <h3><?php echo $jumlah_pesan; ?></h3>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-custom">
-                            <div>Donatur</div>
-                            <h3><?php echo $jumlah_donatur; ?></h3>
-                        </div>
-                    </div>
-                </div>
+                        $no = 1;
+                        while($row = $result->fetch_assoc()) {
+                            $validation_status = isset($row["validation_status"]) ? $row["validation_status"] : 'pending';
+                            echo "<tr>
+                                <td>".$no."</td>
+                                <td>".$row["name"]."</td>
+                                <td>".$row["email"]."</td>
+                                <td>".$row["date_time"]."</td>
+                                <td>".$row["jumlah_donasi"]."</td>
+                                <td>".$row["notes"]."</td>
+                                <td class='actions-column'>
+                                    <button class='btn btn-success btn-sm validate-btn' data-donation-id='".$row["id"]."' ".($validation_status == 'valid' ? 'disabled' : '').">".($validation_status == 'valid' ? 'Validated' : 'Validate')."</button>
+                                </td>
+                                <td class='validation-status'>".$validation_status."</td>
+                            </tr>";
+                            $no++;
+                        }
+                        
+                        $conn->close();
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer mt-auto">
-        <div class="social">
-            <a href="https://www.instagram.com/septia_rosalia39?igshid=MXM0cjIwbHlla3pkdA%3D%3D&utm_source=qr"><i class='bx bxl-instagram'></i></a>
-            <a href="http://wa.me/82282126810"><i class='bx bxl-whatsapp'></i></a>
-            <a href="mailto:septiarosalia493@gmail.com"><i class='bx bxs-envelope'></i></a>
-        </div>
-        <ul class="list">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="Contact_Us.html">Contact Us</a></li>
-            <li><a href="">Target</a></li>
-            <li><a href="">Donate</a></li>
-        </ul>
-        <p class="copyright">@ 2024 CareLink | All Rights Reserved</p>
+<footer class="footer">
+      <div class="social">
+          <a href="https://www.instagram.com/septia_rosalia39?igsh=MXM0cjIwbHlla3pkdA%3D%3D&utm_source=qr"><i
+                  class='bx bxl-instagram'></i></a>
+          <a href="http://wa.me/82282126810"><i class='bx bxl-whatsapp'></i></a>
+          <a href="mailto:septiarosalia493@gmail.com"><i class='bx bxs-envelope'></i></a>
+      </div>
+    
+      <ul class="list">
+          <li>
+              <a href="about.html">About Us</a>
+          </li>
+          <li>
+              <a href="Contact_Us.html">Contact Us</a>
+          </li>
+          <li>
+              <a href="">Target</a>
+          </li>
+          <li>
+            <a href="">Donate</a>
+        </li>
+      </ul>
+    
+      <p class="copyright">@ 2024 CareLink | All Rights Reserved</p>
     </footer>
-    <!-- END Footer -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
+

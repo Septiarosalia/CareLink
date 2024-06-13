@@ -1,77 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact Us</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="style-contact-us.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        body {
-            background-color:#7794BB;
-        }
-        .container {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .table-container {
-            overflow-x: auto;
-            width: 100%; /* Ensure the container takes up the full width */
-            border-radius:10px;
-        }
-        .table {
-            width: 100%; /* Ensure the table takes up the full width */
-        }
-        .actions-column {
-            text-align: center; /* Center align text in Actions column */
-        }
-        .table-heading {
-            font-size: 35px; /* Increase font size */
-            font-weight: bold;
-        }
-        .read-status {
-            color: #4662E8; /* Color for read status */
-            font-weight: bold;
-        }
-        
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="style-contact-us.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="style(1).css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    body {
+        background-color: #A5CCFF;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .main-content {
+        padding: 20px;
+        flex: 1;
+        padding-top: 80px;
+    }
+
+    .card-custom {
+        background-color: rgb(215, 215, 215);
+        color: #060606;
+        font-size: 22px;
+        padding: 50px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .card-custom:hover {
+        background-color: rgb(151, 158, 176);
+        color: #515151;
+    }
+
+    .card-custom h3 {
+        margin-top: 10px;
+    }
+
+    .navbar-custom {
+        background-color: #ffb6c1;
+    }
+
+    .contact-section {
+        padding-top: 120px;
+    }
+
     .footer {
         background-image: url('background.jpg');
         opacity: 80%;
         background-color: black;
-        color: white; 
-        text-align: center; 
-        padding: 20px; 
+        color: white;
+        text-align: center;
+        padding: 20px;
         display: flex;
-        flex-direction: column; 
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;
     }
 
     .footer .social a {
-        color: white; 
-        margin: 0 15px; 
-        font-size: 24px; 
-        display: inline-block; 
+        color: white;
+        margin: 0 15px;
+        font-size: 24px;
+        display: inline-block;
         margin-bottom: 15px;
     }
 
     .footer ul {
-        list-style: none; 
-        padding: 0; 
+        list-style: none;
+        padding: 0;
         display: flex;
-        justify-content: center; 
-        gap: 5px; 
+        justify-content: center;
+        gap: 5px;
     }
 
     .footer ul li {
-        display: inline; 
+        display: inline;
     }
 
     .footer ul li a {
-        color: white; 
+        color: white;
         text-decoration: none;
         padding: 5px 10px;
         margin-top: 20px;
@@ -85,26 +97,25 @@
         margin-top: 5px;
         font-size: 12px;
     }
-    </style>
+</style>
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">CareLink</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">CareLink</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-
-      <div class="offcanvas-body d-flex justify-content-between align-items-center">
-      <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CareLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">CareLink</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex justify-content-between align-items-center">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+                            <a class="nav-link mx-lg-2" aria-current="page" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="About Us.html">Donatur</a>
@@ -116,16 +127,20 @@
                             <a class="nav-link mx-lg-2" href="dataAdmin.php">Donasi</a>
                         </li>
                     </ul>
-
-        <!-- Profile Icon -->
-        <a class="nav-link mx-lg-2" href="#" id="profileIcon">
-          <i class="fas fa-user"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
-<!-- END Navbar -->
+                    <!-- Profile Icon -->
+                    <div class="dropdown">
+                        <a class="nav-link mx-lg-2 dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="../login.php">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END Navbar -->
 <div class="container-fluid" style="margin-top: 120px;">
     <div class="table-container">
         <table class="table table-striped">
