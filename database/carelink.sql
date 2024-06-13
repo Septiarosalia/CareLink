@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 09:12 AM
+-- Generation Time: Jun 13, 2024 at 05:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,49 +63,15 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `notes`, `submission_d
 --
 
 CREATE TABLE `donasi` (
-  `id_donasi` int(11) NOT NULL,
-  `nama_donasi` varchar(100) NOT NULL,
-  `deskripsi` varchar(500) DEFAULT NULL,
-  `target` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `donasi`
---
-
-INSERT INTO `donasi` (`id_donasi`, `nama_donasi`, `deskripsi`, `target`) VALUES
-(1, 'Bantu Renovasi Mushola', 'Musholla menjadi salah satu rumah atau tempat ibadah bagi umat Muslim. Namun di Indonesia sendiri dengan mayoritas penduduk muslim nomor 1 terbanyak di dunia, tidak semua wilayah memiliki Musholla yang layak. Terlebih di daerah-daerah terpencil yang sulit', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `log_donasi`
---
-
-CREATE TABLE `log_donasi` (
-  `id_log_donasi` int(11) NOT NULL,
-  `nama_donator` varchar(50) DEFAULT NULL,
-  `id_donasi` int(11) NOT NULL,
-  `tanggal_waktu_donasi` datetime NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `status` varchar(50) NOT NULL,
+  `date_time` datetime NOT NULL,
   `jumlah_donasi` double NOT NULL,
-  `email_donator` varchar(100) DEFAULT NULL,
-  `catatan` varchar(255) DEFAULT NULL
+  `target_donasi` varchar(255) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `notes` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `log_donasi`
---
-
-INSERT INTO `log_donasi` (`id_log_donasi`, `nama_donator`, `id_donasi`, `tanggal_waktu_donasi`, `jumlah_donasi`, `email_donator`, `catatan`) VALUES
-(1, 'Anonim', 1, '2024-06-13 00:43:11', 50000, NULL, NULL),
-(2, 'Test', 1, '2024-06-13 01:19:20', 1000000, 'test@test.com', NULL),
-(3, 'Untitled', 1, '2024-06-13 01:19:59', 1000, 'untitled@untitled.co.un', NULL),
-(4, 'Nicholas Vitto Adrianto', 1, '2024-06-13 01:20:40', 50000, 'nvittoa@gmail.com', 'Semangat untuk kedepannya! Semoga sukses!'),
-(5, 'Edge', 1, '2024-06-13 01:21:55', 1000000000, 'edge@microsoft.com', 'One billion dollars wkwkwk'),
-(6, 'Anonim', 1, '2024-06-13 13:49:01', 50000, NULL, 'Semangat untuk kedepannya!'),
-(7, 'SUATU NAMA', 1, '2024-06-13 13:55:59', 69420, NULL, 'Nice'),
-(8, 'Nicholas Vitto Adrianto', 1, '2024-06-13 13:57:08', 5000, 'nvittoa@gmail.com', 'seamngat'),
-(9, 'Nicholas Vitto Adrianto', 1, '2024-06-13 13:57:26', 5000, 'nvittoa@gmail.com', 'seamngat');
 
 --
 -- Indexes for dumped tables
@@ -121,14 +87,7 @@ ALTER TABLE `contacts`
 -- Indexes for table `donasi`
 --
 ALTER TABLE `donasi`
-  ADD PRIMARY KEY (`id_donasi`);
-
---
--- Indexes for table `log_donasi`
---
-ALTER TABLE `log_donasi`
-  ADD PRIMARY KEY (`id_log_donasi`),
-  ADD KEY `FK_donasi` (`id_donasi`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -144,23 +103,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id_donasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `log_donasi`
---
-ALTER TABLE `log_donasi`
-  MODIFY `id_log_donasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `log_donasi`
---
-ALTER TABLE `log_donasi`
-  ADD CONSTRAINT `FK_donasi` FOREIGN KEY (`id_donasi`) REFERENCES `donasi` (`id_donasi`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
