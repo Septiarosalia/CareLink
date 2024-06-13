@@ -14,7 +14,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="admin/profile/profile.php">Profile</a></li>
                 <li><a href="#">Settings</a></li>
             </ul>
         </nav>

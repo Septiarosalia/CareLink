@@ -1,0 +1,74 @@
+body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+      
+      .profile-container {
+          max-width: 600px;
+          margin: 50px auto;
+          background: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .profile-header {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+      
+      .profile-header h1 {
+          margin: 0;
+      }
+      
+      .profile-content {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+      }
+      
+      .profile-picture {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 20px;
+      }
+      
+      .profile-details {
+          flex: 1;
+      }
+      
+      .profile-details h2 {
+          margin: 0 0 10px;
+      }
+      
+      .profile-details p {
+          margin: 5px 0;
+      }
+      
+      .upload-form {
+          text-align: center;
+      }
+      
+      .upload-form h2 {
+          margin-bottom: 10px;
+      }
+      
+      .upload-form input[type="file"] {
+          display: block;
+          margin: 10px auto;
+      }
+      
+      .upload-form input[type="submit"] {
+          padding: 10px 20px;
+          background-color: #007BFF;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+      
+      .upload-form input[type="submit"]:hover {
+          background-color: #0056b3;
+      }      
