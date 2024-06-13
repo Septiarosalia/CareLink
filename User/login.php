@@ -29,6 +29,8 @@
             $login = mysqli_fetch_assoc($qLogin);
             $_SESSION['username'] = $username;
             $success_message = "Login berhasil";
+            header("Location: Home.html"); // Redirect to Home.html
+            exit(); // Make sure to exit after redirect
         } else{
             $error_message = "Error : Login tidak valid. Silakan register!";
         }
@@ -75,7 +77,7 @@
                     </div>
                     <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>
                     <div class="card-footer mt-3">
-                        <a href="register.html">Don't have an account? Register</a>
+                        <a href="register.php">Don't have an account? Register</a>
                     </div>
                 </form>
             </div>
