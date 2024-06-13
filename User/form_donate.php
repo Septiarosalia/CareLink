@@ -115,14 +115,14 @@
         }
 
         .donasi-sekarang {
-    text-align: center;
-    padding: 20px 0; /* Adjusted padding */
-    margin-bottom: 30px; /* Adjusted margin-bottom */
-}
+            text-align: center;
+            padding: 20px 0; /* Adjusted padding */
+            margin-bottom: 30px; /* Adjusted margin-bottom */
+        }
 
-.card {
-    margin-top: -130px; /* Adjusted margin-top */
-}
+        .card {
+            margin-top: -130px; /* Adjusted margin-top */
+        }
     </style>
 </head>
 
@@ -140,27 +140,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body d-flex justify-content-between align-items-center">
-                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
-                    </li>
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="Target.html">Target</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Target.html">Target</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="form_donate.php">Donate</a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="form_donate.php">Donate</a>
+                        </li>
+                    </ul>
                     <!-- Profile Icon -->
                     <a class="nav-link mx-lg-2" href="#" id="profileIcon">
                         <i class="fas fa-user"></i>
@@ -182,32 +182,32 @@
                     <div class="row">
                         <div class="col">
                             <?php
-                                include ("koneksi.php");
+                            include("koneksi.php");
 
-                                if(isset($_GET['id'])) {
-                                    $id_donasi = $_GET['id'];
-                                    $result = $connect->query("SELECT * FROM donasi WHERE id_donasi = $id_donasi");
-                                    $donasi = $result->fetch_assoc();
+                            if (isset($_GET['id'])) {
+                                $id_donasi = $_GET['id'];
+                                $result = $connect->query("SELECT * FROM donasi WHERE id_donasi = $id_donasi");
+                                $donasi = $result->fetch_assoc();
+                            }
+
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                $name = $_POST['name'] == null ? "Anonim" : $_POST['name'];
+                                $email = $_POST['email'] == null ? NULL : $_POST['email'];
+                                $id = $_POST['id_donasi'];
+                                $jumlah_donasi = $_POST['jumlah_donasi'];
+                                $catatan = $_POST['catatan'] == null ? NULL : $_POST['catatan'];
+
+                                $statement = $connect->prepare("INSERT INTO log_donasi VALUES (NULL,?,?,NOW(),?,?,?)");
+                                $statement->bind_param("sidss", $name, $id, $jumlah_donasi, $email, $catatan);
+                                if ($statement->execute()) {
+                                    echo "<br><br>Penduduk baru berhasil ditambahkan!";
+                                } else {
+                                    echo "Error : " . $statement->error;
                                 }
-
-                                if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                                    $name = $_POST['name'] == null ? "Anonim": $_POST['name'];
-                                    $email = $_POST['email'] == null ? NULL : $_POST['email'];
-                                    $id = $_POST['id_donasi'];
-                                    $jumlah_donasi = $_POST['jumlah_donasi'];
-                                    $catatan = $_POST['catatan'] == null ? NULL : $_POST['catatan'];
-                    
-                                    $statement = $connect->prepare("INSERT INTO log_donasi VALUES (NULL,?,?,NOW(),?,?,?)");
-                                    $statement->bind_param("sidss", $name, $id, $jumlah_donasi, $email, $catatan);
-                                    if($statement->execute()) {
-                                        echo "<br><br>Penduduk baru berhasil ditambahkan!";
-                                    } else {
-                                        echo "Error : " . $statement->error;
-                                    }
-                                    $statement->close();
-                                    header("Location: data.php");
-                                    exit;
-                                }  
+                                $statement->close();
+                                header("Location: data.php");
+                                exit;
+                            }
                             ?>
                             <form action="form-donate.php" method="post">
                                 <input type="text" class="form-control" name="id_donasi" id="id_donasi" value="<?php echo $donasi['id_donasi']; ?>" hidden>
@@ -224,6 +224,19 @@
                                 <div class="mb-3">
                                     <label for="jumlah_donasi" class="form-label">Jumlah Donasi</label>
                                     <input type="number" class="form-control" id="jumlah_donasi" name="jumlah_donasi" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="target_donasi" class="form-label">Target Donasi</label>
+                                    <select class="form-select" id="target_donasi" name="target_donasi" required>
+                                        <option value="" disabled selected>Pilih target donasi</option>
+                                        <option value="Desa Berdaya">Desa Berdaya</option>
+                                        <option value="Pendidikan">Pendidikan</option>
+                                        <option value="Ekonomi">Ekonomi</option>
+                                        <option value="Panti Asuhan">Panti Asuhan</option>
+                                        <option value="Rumah Ibadah">Rumah Ibadah</option>
+                                        <option value="Lingkungan">Lingkungan</option>
+                                        <option value="Kebencanaan">Kebencanaan</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="catatan" class="form-label">Catatan untuk Donasi</label>
