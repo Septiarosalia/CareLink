@@ -23,18 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jumlah_donasi = $_POST['jumlah_donasi'];
     $target_donasi = $_POST['target_donasi'];
     $notes = $_POST['notes'];
+    $payment_method = $_POST['payment_method'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO donasi(id, name, status, date_time, jumlah_donasi, target_donasi, email, notes) VALUES (NULL, ?, 'Sedang dikonfirmasi', NOW(), ?, ?, ?, ?)");
-    $stmt->bind_param("sisss", $name, $jumlah_donasi, $target_donasi, $email, $notes);
+    $stmt = $conn->prepare("INSERT INTO donasi (id, name, status, date_time, jumlah_donasi, target_donasi, email, notes, payment_method) VALUES (NULL, ?, 'Sedang dikonfirmasi', NOW(), ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sisssss", $name, $jumlah_donasi, $target_donasi, $email, $notes, $payment_method);
 
-    // 1	id Primary	int(11)			No	None		AUTO_INCREMENT	Change Change	Drop Drop	
-	// 2	name	varchar(50)	utf8mb4_general_ci		Yes	NULL			Change Change	Drop Drop	
-	// 3	valid	tinyint(1)			No	None			Change Change	Drop Drop	
-	// 4	date_time	datetime			No	None			Change Change	Drop Drop	
-	// 5	jumlah_donasi	double			No	None			Change Change	Drop Drop	
-	// 6	email	varchar(100)	utf8mb4_general_ci		Yes	NULL			Change Change	Drop Drop	
-	// 7	notes
     // Execute the statement
     if ($stmt->execute()) {
         $success_message = "Donations accepted, waiting for confirmation";
