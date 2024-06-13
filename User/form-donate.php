@@ -149,16 +149,29 @@
                 <h2 class="text-center mb-4">Bukti Pembayaran</h2>
                 <form action="Home.html" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="proof" class="form-label">Upload Payment Proof</label>
+                        <label for="proof" class="form-label">Unggah Bukti Pembayaran</label>
                         <input type="file" class="form-control" id="proof" name="proof" accept="image/*,application/pdf" required>
                     </div>
                     <div class="mb-3">
-                        <label for="amount" class="form-label">Amount</label>
+                        <label for="amount" class="form-label">Jumlah</label>
                         <input type="number" class="form-control" id="amount" name="amount" required>
                     </div>
                     <div class="mb-3">
-                        <label for="transaction_id" class="form-label">Transaction ID</label>
+                        <label for="transaction_id" class="form-label">ID Transaksi</label>
                         <input type="text" class="form-control" id="transaction_id" name="transaction_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="target_donasi" class="form-label">Target Donasi</label>
+                        <select class="form-select" id="target_donasi" name="target_donasi" required>
+                            <option value="" disabled selected>Pilih target donasi</option>
+                            <option value="DESA BERDAYA">DESA BERDAYA</option>
+                            <option value="Pendidikan">Pendidikan</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                            <option value="Panti Asuhan">Panti Asuhan</option>
+                            <option value="Rumah Ibadah">Rumah Ibadah</option>
+                            <option value="Lingkungan">Lingkungan</option>
+                            <option value="Kebencanaan">Kebencanaan</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
