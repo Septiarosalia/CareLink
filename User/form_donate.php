@@ -209,7 +209,7 @@
                                     exit;
                                 }  
                             ?>
-                            <form action="form-donate.php" method="post">
+                            <form action="submit_form.php" method="post">
                                 <input type="text" class="form-control" name="id_donasi" id="id_donasi" value="<?php echo $donasi['id_donasi']; ?>" hidden>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name</label>
