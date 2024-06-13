@@ -230,6 +230,11 @@
   color: #ffffff;
 }
 /* CSS for the Target Section */
+
+body {
+  background-color: rgb(237, 237, 248);
+}
+
 .target-section {
   background-color: rgb(237, 237, 248); /* Background color */
   padding: 40px 0;
