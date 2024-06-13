@@ -181,36 +181,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <?php
-                                include ("koneksi.php");
-
-                                if(isset($_GET['id'])) {
-                                    $id_donasi = $_GET['id'];
-                                    $result = $connect->query("SELECT * FROM donasi WHERE id_donasi = $id_donasi");
-                                    $donasi = $result->fetch_assoc();
-                                }
-
-                                if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                                    $name = $_POST['name'] == null ? "Anonim": $_POST['name'];
-                                    $email = $_POST['email'] == null ? NULL : $_POST['email'];
-                                    $id = $_POST['id_donasi'];
-                                    $jumlah_donasi = $_POST['jumlah_donasi'];
-                                    $catatan = $_POST['catatan'] == null ? NULL : $_POST['catatan'];
-                    
-                                    $statement = $connect->prepare("INSERT INTO log_donasi VALUES (NULL,?,?,NOW(),?,?,?)");
-                                    $statement->bind_param("sidss", $name, $id, $jumlah_donasi, $email, $catatan);
-                                    if($statement->execute()) {
-                                        echo "<br><br>Penduduk baru berhasil ditambahkan!";
-                                    } else {
-                                        echo "Error : " . $statement->error;
-                                    }
-                                    $statement->close();
-                                    header("Location: data.php");
-                                    exit;
-                                }  
-                            ?>
-                            <form action="submit_form.php" method="post">
-                                <input type="text" class="form-control" name="id_donasi" id="id_donasi" value="<?php echo $donasi['id_donasi']; ?>" hidden>
+                            <form action="submit_donate.php" method="post">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name</label>
                                     <input type="text" class="form-control" id="name" name="name">
@@ -239,9 +210,9 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="catatan" class="form-label">Catatan untuk Donasi</label>
+                                    <label for="notes" class="form-label">Catatan untuk Donasi</label>
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="catatan" name="catatan"></textarea>
+                                        <textarea class="form-control" id="notes" name="notes"></textarea>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Donate</button>
