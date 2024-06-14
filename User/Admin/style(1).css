@@ -241,10 +241,6 @@ CSS for the Target Section */
   padding: 0 10px;
 }
 
-.target-section .container {
-  padding: 100px auto;
-}
-
 .target-item {
   background-color: rgb(45, 52, 140); /* Background color */
   color: white;

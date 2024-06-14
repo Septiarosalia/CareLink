@@ -1,40 +1,48 @@
 <?php
-	session_start();
-    // Database configuration
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "carelink";
+session_start();
 
-    // Initialize variables for messages
-    $success_message = $error_message = '';
+// Database configuration
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carelink";
 
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+// Initialize variables for messages
+$success_message = $error_message = '';
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        
-        $usr 	= $_POST['username'];
-        $pwd 	= $_POST['password'];
-        
-        $qLogin 	= mysqli_query($conn, "SELECT * FROM user WHERE username='$usr' AND password='$pwd'");
-        $row 		= mysqli_num_rows($qLogin);
-        
-        if($row > 0){
-            $login = mysqli_fetch_assoc($qLogin);
-            $_SESSION['username'] = $username;
-            $success_message = "Login berhasil";
-            header("Location: Home.html"); // Redirect to Home.html
-            exit(); // Make sure to exit after redirect
-        } else{
-            $error_message = "Error : Login tidak valid. Silakan register!";
-        }
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
+
+    $usr = $_POST['username'];
+    $pwd = $_POST['password'];
+
+    // Query to check user credentials and get user role
+    $qLogin = mysqli_query($conn, "SELECT * FROM user WHERE username='$usr' AND password='$pwd'");
+    $row = mysqli_num_rows($qLogin);
+
+    if ($row > 0) {
+        $login = mysqli_fetch_assoc($qLogin);
+        $_SESSION['username'] = $login['username'];
+        $_SESSION['role'] = $login['role']; // Assuming 'role' column exists
+
+        // Redirect based on user role
+        if ($login['role'] == 'admin') {
+            header("Location: Admin/dashboard.php");
+        } else {
+            header("Location: Home.html");
+        }
+        exit(); // Make sure to exit after redirect
+    } else {
+        $error_message = "Error: Invalid login. Please register!";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,9 +64,9 @@
                 </div>
                 <h2 class="card-title mb-4">Login to Your Account</h2>
                 <?php
-                    if($error_message != "") {
+                    if ($error_message != "") {
                         echo "<div class='alert alert-danger' role='alert'>".$error_message."</div>";
-                    } else if($success_message != "") {
+                    } else if ($success_message != "") {
                         echo "<div class='alert alert-success' role='alert'>".$success_message."</div>";
                     }
                 ?>
