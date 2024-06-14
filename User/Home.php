@@ -1,4 +1,3 @@
-<?php include(__DIR__ . '/../session_check.php'); ?>
 <!doctype html>
 <html lang="en">
 

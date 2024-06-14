@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 10:24 PM
+-- Generation Time: Jun 14, 2024 at 04:35 AM
 -- Server version: 10.4.28-MariaDB-log
 -- PHP Version: 8.0.28
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `carelink`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -53,7 +66,8 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `notes`, `submission_d
 (12, 'Septia Rosalia', 'septiarosalia493@gmail.com', 'hmm', 'hmmmm', '2024-06-11 05:41:59', 0),
 (13, 'Septia Rosalia', 'septiarosalia493@gmail.com', 'hmm', 'hmmmm', '2024-06-11 05:43:38', 0),
 (14, 'Septia Rosalia', 'septiarosalia493@gmail.com', 'hmm', 'coba dulu', '2024-06-12 12:21:11', 0),
-(15, 'oca', 'septiarosalia493@gmail.com', 'nyoba', 'bisaaa', '2024-06-13 16:12:26', 0);
+(15, 'oca', 'septiarosalia493@gmail.com', 'nyoba', 'bisaaa', '2024-06-13 16:12:26', 0),
+(16, 'oca', 'septiarosalia493@gmail.com', 'nyoba', 'mau nanya', '2024-06-14 00:47:44', 0);
 
 -- --------------------------------------------------------
 
@@ -70,18 +84,48 @@ CREATE TABLE `donasi` (
   `target_donasi` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
-  `validation_status` varchar(20) DEFAULT 'pending'
+  `validation_status` varchar(20) DEFAULT 'pending',
+  `file_path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donasi`
 --
 
-INSERT INTO `donasi` (`id`, `name`, `status`, `date_time`, `jumlah_donasi`, `target_donasi`, `email`, `notes`, `validation_status`) VALUES
-(1, 'oca', 'Sedang dikonfirmasi', '2024-06-13 23:09:06', 2000000, 'Lingkungan', 'septiarosalia493@gmail.com', 'b', 'valid'),
-(2, 'oca', 'Sedang dikonfirmasi', '2024-06-13 23:12:08', 2000000, 'Lingkungan', 'septiarosalia493@gmail.com', 'b', 'valid'),
-(3, '', 'Sedang dikonfirmasi', '2024-06-13 23:12:51', 1000000, 'Kebencanaan', '2222@222.com', 'a', 'valid'),
-(4, 'Septia Rosalia', 'Sedang dikonfirmasi', '2024-06-13 23:26:24', 2000000, 'Lingkungan', 'septiarosalia493@gmail.com', 'bisaa', 'pending');
+INSERT INTO `donasi` (`id`, `name`, `status`, `date_time`, `jumlah_donasi`, `target_donasi`, `email`, `notes`, `validation_status`, `file_path`) VALUES
+(1, 'oca', 'Sedang dikonfirmasi', '2024-06-13 23:09:06', 2000000, 'Lingkungan', 'septiarosalia493@gmail.com', 'b', 'valid', NULL),
+(2, 'oca', 'Sedang dikonfirmasi', '2024-06-13 23:12:08', 2000000, 'Lingkungan', 'septiarosalia493@gmail.com', 'b', 'valid', NULL),
+(3, '', 'Sedang dikonfirmasi', '2024-06-13 23:12:51', 1000000, 'Kebencanaan', '2222@222.com', 'a', 'valid', NULL),
+(4, 'Septia Rosalia', 'Sedang dikonfirmasi', '2024-06-13 23:26:24', 2000000, 'Lingkungan', 'septiarosalia493@gmail.com', 'bisaa', 'pending', NULL),
+(5, 'Septia Rosalia', '', '0000-00-00 00:00:00', 12345, 'Dana Sosial', 'septiarosalia493@gmail.com', 'bantu dong', 'pending', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donations`
+--
+
+CREATE TABLE `donations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `target` varchar(100) NOT NULL,
+  `notes` text DEFAULT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `donations`
+--
+
+INSERT INTO `donations` (`id`, `name`, `email`, `amount`, `target`, `notes`, `file_path`, `created_at`) VALUES
+(1, 'John Doe', 'johndoe@example.com', 100.00, 'Education', 'Thank you for this opportunity to donate!', 'uploads/WhatsApp Image 2024-06-13 at 21.18.49.jpeg', '2024-06-13 23:52:23'),
+(2, 'John Doe', 'johndoe@example.com', 100.00, 'Education', 'Thank you for this opportunity to donate!', 'uploads/WhatsApp Image 2024-06-13 at 21.18.49.jpeg', '2024-06-13 23:52:28'),
+(3, 'John Doe', 'johndoe@example.com', 100.00, 'Education', 'Thank you for this opportunity to donate!', 'uploads/WhatsApp Image 2024-06-13 at 21.18.49.jpeg', '2024-06-13 23:53:41'),
+(4, 'John Doe', 'johndoe@example.com', 100.00, 'Education', 'Thank you for this opportunity to donate!', 'uploads/WhatsApp Image 2024-06-13 at 21.18.49.jpeg', '2024-06-13 23:55:23'),
+(5, 'Septia Rosalia', 'septiarosalia493@gmail.com', 66699696.00, 'Ekonomi', 'sdfghj', 'uploads/WhatsApp Image 2024-06-13 at 21.18.49.jpeg', '2024-06-14 00:46:43');
 
 -- --------------------------------------------------------
 
@@ -108,19 +152,29 @@ CREATE TABLE `payment_proof` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(16) NOT NULL
+  `password` varchar(16) NOT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'oca', '123');
+INSERT INTO `user` (`id`, `username`, `password`, `role`) VALUES
+(1, 'oca', '123', 'user'),
+(3, 'user1', 'password1', 'user'),
+(4, 'admin1', 'password2', 'admin');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `contacts`
@@ -132,6 +186,12 @@ ALTER TABLE `contacts`
 -- Indexes for table `donasi`
 --
 ALTER TABLE `donasi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `donations`
+--
+ALTER TABLE `donations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -151,16 +211,28 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `donations`
+--
+ALTER TABLE `donations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `payment_proof`
@@ -172,7 +244,7 @@ ALTER TABLE `payment_proof`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
