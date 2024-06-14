@@ -1,3 +1,30 @@
+<?php
+session_start();
+
+// Proses saat tombol donate ditekan
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Simpan data ke dalam sesi
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['jumlah_donasi'] = $_POST['jumlah_donasi'];
+    $_SESSION['target_donasi'] = $_POST['target_donasi'];
+    $_SESSION['notes'] = $_POST['notes'];
+    
+    // Redirect ke halaman pembayaran
+    header("Location: pembayaran.php");
+    exit;
+}
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Head section -->
+</head>
+<body>
+    <!-- Form donation -->
+</body>
+</html>
+
 <!doctype html>
 <html lang="en">
 
