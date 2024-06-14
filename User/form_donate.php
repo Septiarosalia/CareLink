@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+// Check if user is not logged in, redirect to login page
+if (!isset($_SESSION['username'])) {
+    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI']; // Save current page URL for redirection after login
+    header("Location: login.php");
+    exit;
+}
+
+// Remaining code for form_donate.php
+include(__DIR__ . '/../session_check.php');
+
 // Proses saat tombol donate ditekan
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Simpan data ke dalam sesi

@@ -33,10 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['role'] = $login['role']; // Assuming 'role' column exists
 
         // Redirect based on user role
-        if ($login['role'] == 'admin') {
-            header("Location: Admin/dashboard.php");
+        if (isset($_SESSION['redirect_url'])) {
+            $redirect_url = $_SESSION['redirect_url'];
+            unset($_SESSION['redirect_url']);
+            header("Location: $redirect_url");
         } else {
-            header("Location: Home.html");
+            if ($login['role'] == 'admin') {
+                header("Location: Admin/dashboard.php");
+            } else {
+                header("Location: Home.php");
+            }
         }
         exit(); // Make sure to exit after redirect
     } else {

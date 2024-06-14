@@ -1,3 +1,4 @@
+<?php include(__DIR__ . '/../session_check.php'); ?>
 <!doctype html>
 <html lang="en">
 
@@ -104,7 +105,7 @@
                             <a class="nav-link mx-lg-2" aria-current="page" href="Home.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="About Us.html">About Us</a>
+                            <a class="nav-link mx-lg-2" href="About Us.php">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="Contact_Us.html">Contact Us</a>
@@ -122,7 +123,7 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="login.php">Sign Out</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Sign Out</a></li>
                         </ul>
                     </div>
                 </div>

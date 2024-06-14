@@ -118,7 +118,7 @@
                             <a class="nav-link mx-lg-2" aria-current="page" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="About Us.html">Donatur</a>
+                            <a class="nav-link mx-lg-2" href="donatur.php">Donatur</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="message.php">Message</a>
