@@ -7,7 +7,24 @@
     <title>Riwayat Donasi - CareLink</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-image: linear-gradient(to left, #b8c7df, #dfdfe1); /* Warna latar belakang untuk seluruh body */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
         /* Navbar */
         .navbar {
             background-image: linear-gradient(to right, #0e4c92, #97a7d9);
@@ -73,8 +90,7 @@
 
         /* Donate Section */
         .donate-section {
-            padding: 50px 0; /* Adjusted padding */
-            background-image: linear-gradient(to left, #b8c7df, #dfdfe1);
+            padding: 100px 0;
         }
 
         /* CSS untuk tabel donasi */
@@ -104,6 +120,54 @@
             text-align: center;
             padding: 20px 0;
             margin-bottom: 30px;
+        }
+
+        .footer {
+            background-image: url('background.jpg');
+            opacity: 80%;
+            background-color: black;
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .footer .social a {
+            color: white; 
+            margin: 0 15px; 
+            font-size: 24px; 
+            display: inline-block; 
+            margin-bottom: 15px;
+        }
+
+        .footer ul {
+            list-style: none; 
+            padding: 0; 
+            display: flex;
+            justify-content: center; 
+            gap: 5px; 
+        }
+
+        .footer ul li {
+            display: inline; 
+        }
+
+        .footer ul li a {
+            color: white; 
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-top: 20px;
+        }
+
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin-top: 5px;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -154,7 +218,6 @@
             <section class="donasi-sekarang text-center py-5 mt-5">
                 <h2>Riwayat Donasi</h2>
             </section>
-            <br><br><br>
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -162,18 +225,20 @@
                             <?php
                             include("koneksi.php");
 
-                            $result = $connect->query("SELECT * FROM log_donasi");
+                            $result = $conn->query("SELECT * FROM donasi");
                             if ($result->num_rows > 0) {
                                 echo '<table class="donation-table">';
-                                echo '<thead><tr><th>Nama</th><th>Email</th><th>Jumlah Donasi</th><th>Target Donasi</th><th>Catatan Untuk Donasi</th></tr></thead>';
+                                echo '<thead><tr><th>Nama</th><th>Email</th><th>Waktu Donasi</th><th>Jumlah Donasi</th><th>Target Donasi</th><th>Catatan Untuk Donasi</th><th>Status Valid</th></tr></thead>';
                                 echo '<tbody>';
                                 while ($row = $result->fetch_assoc()) {
                                     echo '<tr>';
                                     echo '<td>' . $row["name"] . '</td>';
                                     echo '<td>' . $row["email"] . '</td>';
+                                    echo '<td>' . $row["date_time"] . '</td>';
                                     echo '<td>' . $row["jumlah_donasi"] . '</td>';
                                     echo '<td>' . $row["target_donasi"] . '</td>';
-                                    echo '<td>' . $row["catatan_untuk_donasi"] . '</td>';
+                                    echo '<td>' . $row["notes"] . '</td>';
+                                    echo '<td>' . $row["validation_status"] . '</td>';
                                     echo '</tr>';
                                 }
                                 echo '</tbody>';
@@ -189,6 +254,32 @@
             </div>
         </div>
     </section>
+    <footer class="footer">
+      <div class="social">
+          <a href="https://www.instagram.com/septia_rosalia39?igsh=MXM0cjIwbHlla3pkdA%3D%3D&utm_source=qr"><i
+                  class='bx bxl-instagram'></i></a>
+          <a href="http://wa.me/82282126810"><i class='bx bxl-whatsapp'></i></a>
+          <a href="mailto:septiarosalia493@gmail.com"><i class='bx bxs-envelope'></i></a>
+      </div>
+    
+      <ul class="list">
+          <li>
+              <a href="about.html">About Us</a>
+          </li>
+          <li>
+              <a href="Contact_Us.html">Contact Us</a>
+          </li>
+          <li>
+              <a href="">Target</a>
+          </li>
+          <li>
+            <a href="">Donate</a>
+        </li>
+      </ul>
+    
+      <p class="copyright">@ 2024 CareLink | All Rights Reserved</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
